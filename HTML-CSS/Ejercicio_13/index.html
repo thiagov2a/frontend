@@ -9,51 +9,68 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="styles.css" />
     <title>Ejercicio_13</title>
   </head>
   <body>
-    <h1>Formulario Registro</h1>
-    <form action="" class="row g-3">
-      <div class="col-md-12">
-        <label for="email" class="form-label">Email:</label>
-        <input
-          type="email"
-          class="form-control"
-          name="email"
-          id="email"
-          placeholder="Ingrese su email"
-          required
-        />
-      </div>
+    <div class="container">
+      <div class="form-container">
+        <h1>Formulario Registro</h1>
+        <form action="" method="">
+          <div class="mb-3 ">
+            <label for="email" class="form-label">
+              <strong>Email:</strong>
+            </label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="email"
+              placeholder="Ingrese su email"
+              required
+            />
+          </div>
 
-      <div class="col-md-12">
-        <label for="contraseña" class="form-label">Contraseña:</label>
-        <input
-          type="password"
-          class="form-control"
-          name="contraseña"
-          id="contraseña"
-          placeholder="Ingrese su contraseña"
-          autocomplete="off"
-          required
-        />
-      </div>
+          <div class="mb-3">
+            <label for="contraseña" class="form-label">
+              <strong>Contraseña:</strong>
+            </label>
+            <input
+              type="password"
+              class="form-control"
+              name="contraseña"
+              id="contraseña"
+              placeholder="Ingrese su contraseña"
+              autocomplete="off"
+              required
+            />
+          </div>
 
-      <div class="col-12">
-        <div class="form-check">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            id="recordame"
-            name="recordame"
-          />
-          <label for="recordame" class="form-check-label"> Recuerdame </label>
-        </div>
-      </div>
+          <div class="mb-3">
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="recuerdame"
+                name="recuerdame"
+              />
+              <label for="recuerdame" class="form-check-label">
+                Recuerdame
+              </label>
+            </div>
+          </div>
 
-      <div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
+          <div class="mb-3">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              aria-label="Registrar"
+            >
+              Registrar
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   </body>
 </html>
