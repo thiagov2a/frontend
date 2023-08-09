@@ -7,7 +7,7 @@ let listaNumeros = [];
 
 numeroButton.addEventListener("click", (event) => {
   event.preventDefault();
-  const numero = parseInt(numeroInput.value.trim());
+  let numero = parseInt(numeroInput.value.trim());
   resetResultados();
 
   if (isNaN(numero)) {
