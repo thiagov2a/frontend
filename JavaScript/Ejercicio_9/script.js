@@ -5,21 +5,16 @@ const alerta = document.getElementById("alerta");
 
 fraseButton.addEventListener("click", (event) => {
   event.preventDefault();
-  let frase = fraseInput.value;
-  resetResultado();
+  const frase = fraseInput.value.trim();
 
   if (frase === "") {
-    mostrarAlerta("No se ingreso una frase.");
+    mostrarAlerta("No se ingresó una frase.");
   } else {
     mostrarResultados(frase);
   }
 
   fraseInput.value = "";
 });
-
-function resetResultado() {
-  resultado.textContent = "";
-}
 
 function mostrarResultados(frase) {
   resultado.textContent = `${fraseEspaciada(frase)}`;
@@ -37,10 +32,9 @@ function mostrarAlerta(mensaje) {
 function fraseEspaciada(frase) {
   let fraseConEspacios = "";
   for (let i = 0; i < frase.length; i++) {
-    if (i === frase.length - 1) {
-      fraseConEspacios += `${frase.substring(i, i + 1)}`;
-    } else {
-      fraseConEspacios += `${frase.substring(i, i + 1)} `;
+    fraseConEspacios += frase.substring(i, i + 1);
+    if (i !== frase.length - 1) {
+      fraseConEspacios += " ";
     }
   }
   return fraseConEspacios;
