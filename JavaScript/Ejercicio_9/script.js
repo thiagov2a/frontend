@@ -6,6 +6,7 @@ const alerta = document.getElementById("alerta");
 fraseButton.addEventListener("click", (event) => {
   event.preventDefault();
   const frase = fraseInput.value.trim();
+  resetResultados();
 
   if (frase === "") {
     mostrarAlerta("No se ingresó una frase.");
@@ -15,6 +16,10 @@ fraseButton.addEventListener("click", (event) => {
 
   fraseInput.value = "";
 });
+
+function resetResultados() {
+  resultado.textContent = "";
+}
 
 function mostrarResultados(frase) {
   resultado.textContent = `${fraseEspaciada(frase)}`;

@@ -1,45 +1,43 @@
-let valorLimite;
-let sum = 0;
-let num;
+document.addEventListener("DOMContentLoaded", function() {
+  const limiteInput = document.getElementById("limiteInput");
+  const numeroInput = document.getElementById("numeroInput");
+  const calcularButton = document.getElementById("calcularButton");
+  const resultadoDiv = document.getElementById("resultado");
+  const alertaDiv = document.getElementById("alerta");
 
-function superarValorLimite() {
-  valorLimite = prompt(`Ingrese un valor límite positivo:`);
-  while (
-    valorLimite === "" ||
-    valorLimite === " " ||
-    valorLimite <= 0 ||
-    isNaN(valorLimite)
-  ) {
-    valorLimite = prompt(`Ingrese un valor límite positivo válido:`);
-  }
+  calcularButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    const limite = parseInt(limiteInput.value);
+    let suma = 0;
+    const numeros = [];
 
-  do {} while (condition);
-}
+    while (suma <= limite) {
+      const numeroStr = numeroInput.value.trim();
 
-document.getElementById("btn").onclick = superarValorLimite;
+      if (numeroStr === "") {
+        break;
+      }
 
-/* Escriba un programa en el cual se ingrese
- un valor límite positivo,
-  y a continuación solicite números al usuario
-   hasta que la suma de los números introducidos 
-   supere el límite inicial.
+      const numero = parseFloat(numeroStr);
 
-let valorLimite;
-let sum = 0;
-let num1;
-function ejer() {
-  do {
-    valorLimite = parseInt(prompt("Ingrese un numero limite"));
-  } while (valorLimite < 0 || isNaN(valorLimite) || valorLimite === "");
+      if (isNaN(numero)) {
+        alertaDiv.innerHTML = `
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Por favor, ingrese un número válido.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>`;
+        alertaDiv.style.display = "block";
+        continue;
+      }
 
-  do {
-    do {
-      num1 = parseInt(prompt("Ingrese otro numero"));
-    } while (num1 < 0 || isNaN(num1) || num1 === "");
+      suma += numero;
+      numeros.push(numero);
+      numeroInput.value = "";
+    }
 
-    sum += num1;
-  } while (sum < valorLimite);
-
-  alert(`Se supero el limite, la suma total de numeros ingresados es ${sum}`);
-}
-ejer(); */
+    if (numeros.length > 0) {
+      resultadoDiv.textContent = `La suma de los números introducidos (${numeros.join(", ")}) es ${suma}, que supera el límite inicial.`;
+      alertaDiv.style.display = "none";
+    }
+  });
+});
