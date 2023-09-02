@@ -1,24 +1,22 @@
-const parrafo = document.getElementById("parrafo");
-const palabras = parrafo.innerHTML.split(" ");
-
-let nuevoParrafo = "";
-
 document.addEventListener("DOMContentLoaded", () => {
-  for (let i = 0; i < palabras.length; i++) {
-    if (palabras[i].length === 8) {
-      agregarPalabraConEstilo(palabras, i);
-    } else {
-      agregarPalabra(palabras, i);
-    }
-  }
+  const parrafo = document.getElementById("parrafo");
+  const palabras = parrafo.textContent.split(/\s+/);
 
-  parrafo.innerHTML = nuevoParrafo;
+  parrafo.innerHTML = "";
+
+  palabras.forEach((palabra) => {
+    if (palabra.replace(/[.,;!?]/g, "").length === 8) {
+      agregarPalabraConEstilo(palabra);
+    } else {
+      agregarPalabra(palabra);
+    }
+  });
 });
 
-function agregarPalabra(palabras, i) {
-  nuevoParrafo += `${palabras[i]} `;
+function agregarPalabra(palabra) {
+  parrafo.innerHTML += palabra + " ";
 }
 
-function agregarPalabraConEstilo(palabras, i) {
-  nuevoParrafo += `<span class="resaltado">${palabras[i]}</span> `;
+function agregarPalabraConEstilo(palabra) {
+  parrafo.innerHTML += `<span class="resaltado">${palabra}</span> `;
 }
