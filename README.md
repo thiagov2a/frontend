@@ -6,4 +6,4 @@
   ⚙️ HTML & CSS | JavaScript
 </h1>
 
-📚 Ejercicios Prácticos de Frontend del Curso FullStack de EGG en Asociación con Argentina Programa 4.0
+📚 Ejercicios Prácticos de Frontend del Curso FullStack de EGG con Argentina Programa 4.0
